@@ -6,8 +6,10 @@ import "./AddUser.css";
 const AddUser = () => {
   const [entredUsername, setEntredUsername] = useState("");
   const [entredAge, setEntredAge] = useState("");
+
   const addUserHandler = (event) => {
     event.preventDefault();
+    if (entredUsername.trim().length === 0 || entredAge < 1) return;
     console.log(entredUsername, entredAge);
     setEntredAge("");
     setEntredUsername("");
