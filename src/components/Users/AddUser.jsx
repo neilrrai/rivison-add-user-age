@@ -3,19 +3,19 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import "./AddUser.css";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [entredUsername, setEntredUsername] = useState("");
   const [entredAge, setEntredAge] = useState("");
 
   const addUserHandler = (event) => {
     event.preventDefault();
     if (entredUsername.trim().length === 0 || entredAge < 1) return;
+    props.onAddUser(entredUsername, entredAge);
     console.log(entredUsername, entredAge);
     setEntredAge("");
     setEntredUsername("");
   };
   const nameInputHandler = (event) => {
-    // console.log(event.target.value);
     setEntredUsername(event.target.value);
   };
   const ageInputhandler = (event) => {
